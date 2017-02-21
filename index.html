@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="validationApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Dennis M - angular form</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+    
+</head>
+<body>
+   
+    <div ng-controller="mainController">
+        <div class="container">
+            <div class="row">  
+
+            <div class="col-sm-4">
+
+                <h1>Hello! Add a user!</h1>
+
+                <form name="userForm" ng-submit="submitForm()" novalidate>
+
+                    <!-- NAME -->
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" ng-model="user.name" required>
+                        <p class="error" ng-show="userForm.name.$invalid && !userForm.name.$pristine">Name is required.</p>
+                    </div>
+
+                    <!-- USERNAME -->
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                        <label>Username</label>
+                        <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" required>
+                        <p class="error" ng-show="userForm.username.$invalid && !userForm.name.$pristine">Username is required.</p>
+
+                        <p class="error" ng-show="userForm.username.$error.minlength">Too short! At least 3 characters</p>
+                        <p class="error" ng-show="userForm.username.$error.maxlength">Too long! Maximum 8 characters</p>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" ng-model="user.email" required>
+                        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+
+                    </div>
+                    
+                      <label class="radio-inline"><input name="gender" type="radio" ng-model="user.gender" value="male" required>male</label>
+                      <label class="radio-inline"><input name="gender" type="radio" ng-model="user.gender" value="female" required>female</label>
+                      <label class="radio-inline"><input name="gender" type="radio" ng-model="user.gender" value="other" required>other</label><br />
+                      
+                    
+                    <button ng-click="reset()" class="btn btn-danger">Reset</button>
+
+                    <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="userAdd()">Submit</button>
+
+                </form>
+              </div>
+               
+                <div class="col-md-offset-2 col-md-6">
+                      
+                        <h2>All users:</h2>
+
+                        <div ng-repeat="user in users">
+                            <div class="all_users">
+                               
+                                <p ng-bind="user.name"></p>
+                                <p ng-bind="user.username"></p>
+                                <p ng-bind="user.email"></p>
+                                <p ng-bind="user.gender"></p>
+                                
+                                <p ng-bind="user.contentName"></p>
+                                <p ng-bind="user.contentUserName"></p>
+                                <p ng-bind="user.contentEmail"></p>
+                                <p ng-bind="user.contentGender"></p>
+                                
+                                <a class="delete_btn" href="#" ng-click="deleteUser(user)">x</a>
+                                
+                            </div>
+                        </div>
+                                    
+                </div>
+
+            </div>
+        </div>
+    
+</body>
+</html>
