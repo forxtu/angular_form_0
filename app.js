@@ -41,7 +41,7 @@ validationApp.controller("mainController", function($scope) {
     };
                
 
-    // submit function not working :<	
+    // submit function not working cause of onclick
     $scope.submitForm = function() {
         if ($scope.userForm.$valid) {
             alert("New user added!");

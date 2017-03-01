@@ -9,6 +9,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="directives.js"></script>
     
 </head>
 <body>
@@ -65,21 +66,7 @@
                         <h2>All users:</h2>
 
                         <div ng-repeat="user in users">
-                            <div class="all_users">
-                               
-                                <p ng-bind="user.name"></p>
-                                <p ng-bind="user.username"></p>
-                                <p ng-bind="user.email"></p>
-                                <p ng-bind="user.gender"></p>
-                                
-                                <p ng-bind="user.contentName"></p>
-                                <p ng-bind="user.contentUserName"></p>
-                                <p ng-bind="user.contentEmail"></p>
-                                <p ng-bind="user.contentGender"></p>
-                                
-                                <a class="delete_btn" href="#" ng-click="deleteUser(user)">x</a>
-                                
-                            </div>
+                            <user-info></user-info>
                         </div>
                                     
                 </div>
