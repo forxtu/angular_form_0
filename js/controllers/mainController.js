@@ -28,7 +28,7 @@ validationApp.controller("mainController", function($scope) {
     $scope.submitForm = function() {
         if ($scope.userForm.$valid) {
             $scope.users.push($scope.user);
-            $scope.user = "";
+            $scope.user = {};
             $scope.userForm.$setUntouched(true);
         }
     };
