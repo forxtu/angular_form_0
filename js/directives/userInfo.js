@@ -1,4 +1,4 @@
-validationApp.directive("userInfo", function(){
+angular.module("validationApp").directive("userInfo", function(){
     return{
         restrict: "E",
         template: ['<div class="all_users">',                        
@@ -9,7 +9,7 @@ validationApp.directive("userInfo", function(){
                                 
                         '<a class="delete_btn" href="#" ng-click="deleteUser(user)">x</a>',                           
                    '</div>'
-                   ].join(''),
+                   ].join(""),
         
         link: function(scope, element, attr){
             
