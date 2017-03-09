@@ -1,4 +1,4 @@
-angular.module("validationApp").directive("userInfo", function(){
+validationApp.directive("userInfo", function(){
     return{
         restrict: "E",
         template: ['<div class="all_users">',                        

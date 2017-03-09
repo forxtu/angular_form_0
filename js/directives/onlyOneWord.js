@@ -1,4 +1,4 @@
-angular.module("validationApp").directive("onlyOneWord", function() {
+validationApp.directive("onlyOneWord", function() {
     return {
         require: "ngModel",
         restrict: "A",
