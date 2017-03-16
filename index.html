@@ -6,8 +6,7 @@
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-    
+
 </head>
 <body>
    
@@ -53,7 +52,6 @@
                       
                     
                     <button ng-click="reset()" class="btn btn-danger">Reset</button>
-
                     <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" >Submit</button>
 
                 </form>
@@ -66,7 +64,15 @@
                         <div ng-repeat="user in users">
                             <user-info></user-info>
                         </div>
-                                    
+
+<!--
+                        <a href="#/">Main page</a>
+                        <a href="#allUsers">All users</a>
+                        <div ng-view></div>
+-->
+                        <div ng-controller="serviceController">
+                            <button ng-click="sayHello()">Hello!</button>
+                        </div>
                 </div>
 
             </div>
@@ -74,8 +80,11 @@
     
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/directives/userInfo.js"></script>
 	<script src="js/directives/onlyOneWord.js"></script>
+    <script src="js/controllers/serviceController.js"></script>
     <script src="js/controllers/mainController.js"></script>
+    <script src="js/services/service.js"></script>
 </html>
